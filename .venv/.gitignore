@@ -385,6 +385,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # Ignorar el archivo config.json
-config.json
+config.json/
 
 # End of https://www.toptal.com/developers/gitignore/api/python,osx,visualstudiocode,node,windows
