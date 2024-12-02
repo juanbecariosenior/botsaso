@@ -2,15 +2,15 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 import pyodbc
 import asyncio
-from dotenv import load_dotenv
-import os 
-load_dotenv()
+import json
 
-# Configuración de la conexión SQL Server
-server = os.getenv('server')
-bd = os.getenv('bd')
-usuario = os.getenv('usuario')
-contrsena = os.getenv('contrsena')
+with open('config.json', 'r') as config_file:
+    config = json.load(config_file)
+
+server = config['server']
+bd = config['bd']
+usuario = config['usuario']
+contrasena = config['contrasena']
 
 def obtener_platillos(precio_minimo):
     """Realiza la consulta SQL con un parámetro y devuelve los resultados."""
@@ -103,7 +103,7 @@ async def mostrar_platillos(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 # Configuración del bot
-application = ApplicationBuilder().token(os.getenv("token")).build()
+application = ApplicationBuilder().token(config["token"]).build()
 
 # Registrar manejadores
 application.add_handler(CommandHandler("start", say_hello))

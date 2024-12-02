@@ -292,7 +292,7 @@ celerybeat.pid
 
 # Environments
 .venv
-.env/
+env/
 venv/
 ENV/
 env.bak/
@@ -383,5 +383,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Ignorar el archivo config.json
+config.json
 
 # End of https://www.toptal.com/developers/gitignore/api/python,osx,visualstudiocode,node,windows
